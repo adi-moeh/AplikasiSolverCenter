@@ -1,0 +1,19 @@
+<% layout('layout', { title: 'Data Masalah' }) %>
+<h1>Data Masalah</h1>
+<a href="/masalah/tambah">Tambah Masalah</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>No.</th><th>No Masalah</th><th>Masalah</th><th>Aksi</th>
+  </tr>
+  <% data.forEach((row,i)=>{ %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= row.No_Masalah %></td>
+    <td><%= row.Masalah %></td>
+    <td>
+      <a href="/masalah/ubah?id=<%= row.No_Masalah %>">ubah</a> |
+      <a href="/masalah/hapus?id=<%= row.No_Masalah %>" onclick="return confirm('Yakin?')">hapus</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

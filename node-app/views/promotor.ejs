@@ -1,0 +1,21 @@
+<% layout('layout', { title: 'Data Promotor' }) %>
+<h1>Data Promotor</h1>
+<a href="/promotor/tambah">Tambah Promotor</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>No.</th><th>Nama</th><th>Sex</th><th>No Hp</th><th>noj</th><th>Aksi</th>
+  </tr>
+  <% data.forEach((row,i)=>{ %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= row.Nama_p %></td>
+    <td><%= row.Sex %></td>
+    <td><%= row.No_hp %></td>
+    <td><%= row.noj %></td>
+    <td>
+      <a href="/promotor/ubah?id=<%= row.Id_Pro %>">ubah</a> |
+      <a href="/promotor/hapus?id=<%= row.Id_Pro %>" onclick="return confirm('Yakin?')">hapus</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

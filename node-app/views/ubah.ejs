@@ -1,0 +1,17 @@
+<% layout('layout', { title: 'Ubah Solvee' }) %>
+<h1>Ubah Solvee</h1>
+<form method="post" action="/ubah">
+  <input type="hidden" name="id" value="<%= record.Id_S %>">
+  <label>Nama: <input type="text" name="nama" value="<%= record.Nama %>" required></label><br>
+  <label>Sex: 
+    <select name="sex">
+      <option value="L"<%= record.Sex==='L'?' selected':'' %>>L</option>
+      <option value="P"<%= record.Sex==='P'?' selected':'' %>>P</option>
+    </select>
+  </label><br>
+  <label>No HP: <input type="text" name="no_hp" value="<%= record.No_hp %>" required></label><br>
+  <label>Alamat: <input type="text" name="alamat" value="<%= record.Alamat %>"></label><br>
+  <label>TTL: <input type="text" name="TTL" value="<%= record.TTL %>"></label><br>
+  <label>No Masalah: <input type="number" name="No_Masalah" value="<%= record.No_Masalah %>" required></label><br>
+  <button type="submit">Simpan</button>
+</form>

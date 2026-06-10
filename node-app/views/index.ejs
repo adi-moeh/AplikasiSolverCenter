@@ -1,0 +1,27 @@
+<% layout('layout', { title: 'Halaman Admin' }) %>
+<h1>Data Solvee</h1>
+<a href="/tambah">Tambah data Solvee</a>
+<form method="post" action="/">
+  <input type="text" name="keyword" placeholder="masukan pencarian" autocomplete="off" value="<%= keyword %>">
+  <button type="submit" name="cari">cari</button>
+</form>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>No.</th><th>Nama</th><th>Jenis kelamin</th><th>No Hp</th><th>Alamat</th><th>TTL</th><th>No Masalah</th><th>Aksi</th>
+  </tr>
+  <% data.forEach((row, i)=>{ %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= row.Nama %></td>
+    <td><%= row.Sex %></td>
+    <td><%= row.No_hp %></td>
+    <td><%= row.Alamat %></td>
+    <td><%= row.TTL %></td>
+    <td><%= row.No_Masalah %></td>
+    <td>
+      <a href="/ubah?id=<%= row.Id_S %>">ubah</a> |
+      <a href="/hapus?id=<%= row.Id_S %>" onclick="return confirm('Yakin?')">hapus</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

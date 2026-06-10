@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    container_name: solver_app
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=root
+      - DB_PASS=
+      - DB_NAME=solver_center
+      - PORT=3000
+      - JWT_SECRET=supersecretkey
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: mysql:10.4
+    container_name: solver_mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=solver_center
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

@@ -1,0 +1,21 @@
+<% layout('layout', { title: 'Data Admin' }) %>
+<h1>Data Admin</h1>
+<a href="/admin/tambah">Tambah Admin</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>No.</th><th>Nama</th><th>Sex</th><th>No Hp</th><th>noj</th><th>Aksi</th>
+  </tr>
+  <% data.forEach((row,i)=>{ %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= row.Nama %></td>
+    <td><%= row.Sex %></td>
+    <td><%= row.No_hp %></td>
+    <td><%= row.noj %></td>
+    <td>
+      <a href="/admin/ubah?id=<%= row.Id_ad %>">ubah</a> |
+      <a href="/admin/hapus?id=<%= row.Id_ad %>" onclick="return confirm('Yakin?')">hapus</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

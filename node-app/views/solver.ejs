@@ -1,0 +1,22 @@
+<% layout('layout', { title: 'Data Solver' }) %>
+<h1>Data Solver</h1>
+<a href="/solver/tambah">Tambah Solver</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>No.</th><th>Nama</th><th>Sex</th><th>No Masalah</th><th>No Hp</th><th>noj</th><th>Aksi</th>
+  </tr>
+  <% data.forEach((row,i)=>{ %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= row.Nama %></td>
+    <td><%= row.Sex %></td>
+    <td><%= row.No_Masalah %></td>
+    <td><%= row.No_hp %></td>
+    <td><%= row.noj %></td>
+    <td>
+      <a href="/solver/ubah?id=<%= row.Id_Sol %>">ubah</a> |
+      <a href="/solver/hapus?id=<%= row.Id_Sol %>" onclick="return confirm('Yakin?')">hapus</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

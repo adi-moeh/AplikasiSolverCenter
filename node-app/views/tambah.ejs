@@ -1,0 +1,11 @@
+<% layout('layout', { title: 'Tambah Solvee' }) %>
+<h1>Tambah Solvee</h1>
+<form method="post" action="/tambah">
+  <label>Nama: <input type="text" name="nama" required></label><br>
+  <label>Sex: <select name="sex"><option value="L">L</option><option value="P">P</option></select></label><br>
+  <label>No HP: <input type="text" name="no_hp" required></label><br>
+  <label>Alamat: <input type="text" name="alamat"></label><br>
+  <label>TTL: <input type="text" name="TTL"></label><br>
+  <label>No Masalah: <input type="number" name="No_Masalah" required></label><br>
+  <button type="submit">Simpan</button>
+</form>

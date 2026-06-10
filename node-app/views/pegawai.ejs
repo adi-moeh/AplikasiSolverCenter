@@ -1,0 +1,19 @@
+<% layout('layout', { title: 'Data Jabatan' }) %>
+<h1>Data Jabatan</h1>
+<a href="/pegawai/tambah">Tambah Jabatan</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>No.</th><th>noj</th><th>jabatan</th><th>Aksi</th>
+  </tr>
+  <% data.forEach((row,i)=>{ %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= row.noj %></td>
+    <td><%= row.jabatan %></td>
+    <td>
+      <a href="/pegawai/ubah?id=<%= row.noj %>">ubah</a> |
+      <a href="/pegawai/hapus?id=<%= row.noj %>" onclick="return confirm('Yakin?')">hapus</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>
